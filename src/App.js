@@ -7,7 +7,10 @@ import {postDelete} from "store/slices/postSlice";
 import {useActionCreator} from "./helpers/actionCreator";
 import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import {post} from "axios";
+import {postPatch} from "store/slices/postSlice";
+import CreateModal from "./Modal";
+
+
 function Exm(){
 useEffect(() => {
     console.log('RENDER EXM')
@@ -29,9 +32,9 @@ function App() {
     useEffect(() => {
         console.log('RENDER APP')
     }, [])
-
+    //
     function infiniteGetPost(){
-        if (post.length > 30){
+        if (posts.length > 30){
             setMore(false)
             return
         }
@@ -49,13 +52,16 @@ function App() {
                 <input value={value} onChange={(e) => setValue(e.target.value)}/>
                 <input value={value2} onChange={(e) => setValue2(e.target.value)}/>
             </div>
+
             <button onClick={infiniteGetPost}>get posts</button>
+            <button onClick={postDelete}>Delete post</button>
+            <button onClick={postPatch}>Patch</button>
             <InfiniteScroll
-            dataLength={post.length}
+            dataLength={posts.length}
             next={infiniteGetPost}
             hasMore={more}>
-            {post?.map((item) =>
-                <div key = {item.id} className={itemCard}>
+            {posts?.map((item) =>
+                <div key = {item.id} className={'itemCard'}>
                     {item.title}
                 </div>
             )}

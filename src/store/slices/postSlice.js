@@ -10,7 +10,7 @@ const initialState = {
 export const postFetch = createAsyncThunk(
     `${name}/postFetch`,
     async (params) => {
-        const data = await axios.get('https://jsonplaceholder.typecode.com/todos/1', {params})
+        const data = await axios.get('https://jsonplaceholder.typecode.com/todos', {params})
         return data
     }
 )
