@@ -1,8 +1,11 @@
+import Modal from "../Modal/Modal";
+import CreateModal from "../Modal/Modal";
 
 const AboutPage = () => {
     return (
-        <div>About page
-            <h1>BACK</h1>
+        <div>
+            {/*<h1>BACK</h1>*/}
+            {/*<button onClick={() => CreateModal}>Modal</button>*/}
         </div>
     );
 }

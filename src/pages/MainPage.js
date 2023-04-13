@@ -1,4 +1,5 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
+import Modal from "../Modal/Modal";
 
 const MainPage = () => {
 
@@ -13,7 +14,6 @@ const MainPage = () => {
 
     return (
         <div>MainPage
-
             <h2 onClick={navToAbout}>To about page</h2>
         </div>
     );
